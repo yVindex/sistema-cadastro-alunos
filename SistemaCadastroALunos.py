@@ -9,61 +9,51 @@ def menu_sistema_cadastro():
     print("5. Mostrar média geral das notas ")
     print("6. Sair ")
     print("---------------------------------------------------")
-
-def adicionar_aluno():
+    
+def ler_nome():
     while True:
-        nome = input("Digite o nome do aluno: ")
-        if nome == "":
-            print("O nome não pode ficar vazio.")
-            continue
-        else:
-            break
-
-
-
-
-    while True:
-     texto = input("Digite a idade do aluno: ").strip()
-
-     try:
-        idade = int(texto)
-     except ValueError:
-        print("A idade deve ser um número inteiro.")
-        continue
-
-     if idade > 0:
-        break
-     else:
-        print("A idade deve ser maior que 0.")
-        
-        
-    while True:
-        nota = input("Digite a nota do aluno: ")
-
-        nota = nota.replace(",", ".")
-
-        if nota.count(".") <= 1:
-            if nota.replace(".", "").isdigit():
-                nota = float(nota)
-            else:
-                print("A nota deve ser um NUMERO.")
+            nome = input("Digite o nome do aluno: ").strip()
+            if nome == "":
+                print("O nome não pode ficar vazio.")
                 continue
-        else:
-            print("Digite uma nota valida")
+            else:
+                return nome
+
+def ler_idade():
+    while True:
+         texto = input("Digite a idade do aluno: ").strip()
+    
+         try:
+            idade = int(texto)
+         except ValueError:
+            print("A idade deve ser um número inteiro.")
             continue
-
-        
-
-        if 0 <= nota <= 10:
-            break
-        else:
-             print("A nota deve estar entre 0 e 10.")
-
-
+    
+         if idade > 0:
+             return idade 
+         else:
+            print("A idade deve ser maior que 0.")
+    
+def ler_nota():
+     while True:
+            nota = input("Digite a nota do aluno: ").strip().replace(",", ".")
+            
+            try:
+                nota = float(texto)
+            except:
+                print("A nota deve ser um número.")
+                continue
+            if 0 <= nota <= 10:
+             return nota
+            print("A nota deve estar entre 0 e 10.")
+                
+            
+                 
+def adicionar_aluno():
     aluno = {
-            "nome": nome,
-            "idade": idade,
-            "nota": nota
+            "nome": ler_nome(),
+            "idade": ler_idade(),
+            "nota": ler_nota(),
         }
     alunos.append(aluno)
 
