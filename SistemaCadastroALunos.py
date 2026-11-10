@@ -123,7 +123,8 @@ def mostrar_media():
     media = sum(aluno["nota"] for aluno in alunos) / len(alunos)
     print(f"A média geral é {media:.2f}")
 
-while True:
+def main():
+ while True:
     menu_sistema_cadastro()
     opcao = input("Digite uma opção: ")
     print("---------------------------------------------------")
@@ -149,3 +150,6 @@ while True:
 
     else:
         print("Opção inválida. Digite uma opção de 1 a 6.")
+        
+if __name__ == "__main__":
+    main()
