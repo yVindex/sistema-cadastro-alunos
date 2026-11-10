@@ -12,12 +12,10 @@ def menu_sistema_cadastro():
     
 def ler_nome():
     while True:
-            nome = input("Digite o nome do aluno: ").strip()
-            if nome == "":
-                print("O nome não pode ficar vazio.")
-                continue
-            else:
-                return nome
+        nome = input("Digite o nome do aluno: ").strip()
+        if nome:
+            return nome
+        print("O nome não pode ficar vazio.")
 
 def ler_idade():
     while True:
