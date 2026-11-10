@@ -89,9 +89,7 @@ def buscar_aluno():
     for aluno in alunos:
         if aluno["nome"].lower() == nome_buscar.lower():
             print("\nAluno encontrado!")
-            print(f"Nome: {aluno['nome']}")
-            print(f"Idade: {aluno['idade']} anos")
-            print(f"Nota: {aluno['nota']:.1f}")
+            print(exibir_aluno(aluno))
 
             encontrado = True
             break
