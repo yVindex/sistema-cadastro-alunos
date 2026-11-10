@@ -10,6 +10,13 @@ def menu_sistema_cadastro():
     print("6. Sair ")
     print("---------------------------------------------------")
     
+def exibir_aluno(aluno):
+    return (
+        f"Nome: {aluno['nome']}\n"
+        f"Idade: {aluno['idade']} anos\n"
+        f"Nota: {aluno['nota']:.1f}"
+    )
+    
 def ler_nome():
     while True:
         nome = input("Digite o nome do aluno: ").strip()
@@ -34,7 +41,7 @@ def ler_idade():
     
 def ler_nota():
      while True:
-            nota = input("Digite a nota do aluno: ").strip().replace(",", ".")
+            texto = input("Digite a nota do aluno: ").strip().replace(",", ".")
             
             try:
                 nota = float(texto)
@@ -66,9 +73,7 @@ def listar_alunos():
     
     print("------------------Lista de Alunos------------------")
     for aluno in alunos:
-            print(f"Nome: {aluno['nome']}")
-            print(f"Idade: {aluno['idade']} anos")
-            print(f"Nota: {aluno['nota']:.1f}")
+            print(exibir_aluno(aluno))
             print("---------------------------------------------------")
 
 
