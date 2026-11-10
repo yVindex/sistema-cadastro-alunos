@@ -23,19 +23,20 @@ def adicionar_aluno():
 
 
     while True:
-        idade = input("Digite a idade do aluno: ")
+     texto = input("Digite a idade do aluno: ").strip()
 
-        if idade.isdigit():
-         idade = int(idade)
-        else:
-            print("A idade deve ser um NUMERO.")
-            continue
+     try:
+        idade = int(texto)
+     except ValueError:
+        print("A idade deve ser um número inteiro.")
+        continue
 
-        if idade > 0:
-            break
-        else:
-            print("A idade deve ser maior que 0.")
-
+     if idade > 0:
+        break
+     else:
+        print("A idade deve ser maior que 0.")
+        
+        
     while True:
         nota = input("Digite a nota do aluno: ")
 
@@ -124,20 +125,12 @@ def remover_aluno():
 
 
 def mostrar_media():
-
     if len(alunos) == 0:
-            print("Nenhum aluno cadastrado.")
-            return
-    else:
-     soma = 0
+        print("Nenhum aluno cadastrado.")
+        return
 
-    for aluno in alunos:
-        soma += aluno["nota"]
-
-
-    media = soma / len(alunos)
-    print(f"A media geral é {media:.2f}")
-
+    media = sum(aluno["nota"] for aluno in alunos) / len(alunos)
+    print(f"A média geral é {media:.2f}")
 
 while True:
     menu_sistema_cadastro()
